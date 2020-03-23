@@ -25,3 +25,4 @@ SELECT  *
 FROM    DOIT_MEMBER
 ;
 
+commit;

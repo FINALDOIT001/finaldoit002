@@ -12,22 +12,38 @@ import com.kh.doit.member.model.service.MemberService;
 import com.kh.doit.member.model.vo.Member;
 import com.kh.doit.util.UserSha256;
 
+
 @Controller
 public class MemberController {
 	
 	@Autowired
 	private MemberService mService;
 
+	
+	/**
+	 * 로그인 화면으로 이동 Kwon
+	 * @return
+	 */
 	@RequestMapping("moveLogin.go")
 	public String moveLogin() {
 		return "member/login";
 	}
 	
+	/**
+	 * 회원가입 화면으로 이동 Kwon
+	 * @return
+	 */
 	@RequestMapping("moveJoin.go")
 	public String moveJoin() {
 		return "member/join";
 	}
 	
+	/**
+	 * 회원가입 Kwon
+	 * @param m
+	 * @param session
+	 * @return
+	 */
 	@RequestMapping(value="join.me", method={RequestMethod.GET, RequestMethod.POST})
 	public String memberJoin(@ModelAttribute Member m, HttpSession session) {
 		
@@ -43,6 +59,12 @@ public class MemberController {
 	
 	
 	
+	/**
+	 * 로그인 Kwon
+	 * @param m
+	 * @param session
+	 * @return
+	 */
 	@RequestMapping(value="login.me", method={RequestMethod.GET, RequestMethod.POST})
 	public String memberLogin(@ModelAttribute Member m, HttpSession session) {
 		
@@ -55,13 +77,18 @@ public class MemberController {
 		
 		// 비즈니스 로직으로 이동
 		Member loginUser = mService.memberLogin(m);
-		System.out.println("로그인 된 유저 : " + loginUser);
+		System.out.println("Servlet 로그인 유저 : " + loginUser);
 		
 		session.setAttribute("loginUser", loginUser);
 
 		return "redirect:main.go";
 	}
 	
+	/**
+	 * 로그아웃 Kwon
+	 * @param session
+	 * @return
+	 */
 	@RequestMapping("logout.do")
 	public String memberLogout(HttpSession session) {
 		session.invalidate();

@@ -33,7 +33,7 @@ public class MemberServiceImpl implements MemberService {
 		
 		Member loginUser = mDao.loginMember(m);
 		
-		System.out.println("Service 로그인 member : " + m);
+		System.out.println("Service 로그인 member : " + loginUser);
 		
 		return loginUser;
 	}

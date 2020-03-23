@@ -11,7 +11,7 @@ public class Member implements Serializable{
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 242882812278019964L;
+	private static final long serialVersionUID = 4689355522768787248L;
 	private int mId;
 	private String userId;
 	private String userPwd;

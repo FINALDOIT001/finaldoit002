@@ -21,7 +21,11 @@ public class MemberDao {
 	 */
 	public Member loginMember(Member m) {
 		
-		return (Member)sqlSession.selectOne("memberMapper.loginMember", m);
+		System.out.println("Dao member : " + m);
+		Member loginUser = (Member)sqlSession.selectOne("memberMapper.loginMember",m);
+				
+		System.out.println("Dao 로그인 유저 : " + loginUser);
+		return loginUser;
 	}
 
 }

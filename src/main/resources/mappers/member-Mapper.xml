@@ -7,11 +7,12 @@
    	<resultMap id="memberResultSet" type="Member">
 		<id property="mId" column="MID"/>
 		<result property="userId" column="USERID"/>
-		<result property="pwd" column="PWD"/>
+		<result property="userPwd" column="USERPWD"/>
 		<result property="userName" column="USERNAME"/>
     </resultMap>
     
-    <select id="loginMember" parameterType="Member" resultMap="memberResultSet">
+    <select id="loginMember" parameterType="Member" 
+    resultMap="memberResultSet">
     	SELECT	*
    		FROM	DOIT_MEMBER
    		WHERE	USERID=#{userId}
